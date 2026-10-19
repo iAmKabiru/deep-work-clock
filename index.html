@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="amber">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Deep Work</title>
+  <meta name="description" content="A minimalist LED-style countdown clock for deep work.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Deep Work">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="corner">
+    <div class="themes" role="group" aria-label="Colour theme">
+      <button class="swatch" type="button" data-theme-btn="amber" aria-label="Amber" aria-pressed="true"></button>
+      <button class="swatch" type="button" data-theme-btn="green" aria-label="Green" aria-pressed="false"></button>
+    </div>
+    <button id="fullscreen" class="icon-btn" type="button" aria-label="Enter fullscreen" aria-pressed="false" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="enter" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+        <path class="exit" d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" />
+      </svg>
+    </button>
+  </div>
+
+  <main>
+    <div id="clock" role="timer" aria-label="Time remaining"></div>
+    <p id="clock-text" class="sr"></p>
+
+    <div id="setter" class="setter" role="group" aria-label="Set countdown">
+      <label><input id="hours" type="number" inputmode="numeric" min="0" max="99" step="1" aria-label="Hours"><span
+          aria-hidden="true">h</span></label>
+      <label><input id="minutes" type="number" inputmode="numeric" min="0" max="59" step="1" aria-label="Minutes"><span
+          aria-hidden="true">m</span></label>
+    </div>
+
+    <div class="controls">
+      <button id="toggle" class="btn primary" type="button">Start</button>
+      <button id="reset" class="btn" type="button">Reset</button>
+    </div>
+  </main>
+
+  <footer><time id="date"></time></footer>
+  <p id="status" class="sr" role="status" aria-live="polite"></p>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
